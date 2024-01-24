@@ -1,0 +1,38 @@
+﻿@page "/detalhe-post/{Id:int}"
+@using ClientBlazorWASM.Models
+@using ClientBlazorWASM.Services.Interface
+
+@inject IPostsService postsService
+
+<PageTitle>Detalhes da postagem</PageTitle>
+
+<h1 class="text-center">@post.Titulo</h1>
+
+<div class="col-8 offset-2">
+    <img src="@post.RotaImagem" class="img-fluid"/>
+</div>
+<p><strong>Descrição:</strong> @post.Descricao</p>
+<h6><strong>Categorias:</strong> @post.Etiqueta</h6>
+@if(post.DataAtualizacao == null)
+{
+    <h6><strong>Data de criação:</strong> @post.DataCriacao</h6>
+}
+else
+{
+    <h6><strong>Última atualização:</strong> @post.DataAtualizacao</h6>
+}
+<br />
+<NavLink href="/" class="btn btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i> Voltar</NavLink>
+
+
+@code{
+    private Post post { get; set; } = new Post();
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        post = await postsService.GetPost(Id.Value);
+    }
+}

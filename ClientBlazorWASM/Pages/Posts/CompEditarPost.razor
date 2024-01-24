@@ -1,0 +1,146 @@
+﻿@page "/editar-post/{Id:int}"
+@using ClientBlazorWASM.Models;
+@using ClientBlazorWASM.Services.Interface;
+@using System.Net.Http.Headers
+@using Microsoft.AspNetCore.Authorization
+
+@inject IPostsService postsService
+@inject IJSRuntime JsRuntime
+@inject NavigationManager navigationManager
+@attribute [Authorize]
+
+<h1 class="text-center">Editar</h1>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-7">
+                <h4 class="card-title text-dark">Editar Post</h4>
+            </div>           
+        </div>
+    </div>
+    <div class="card-body">
+        <EditForm Model="EditPost" OnValidSubmit="@( () => EditarPost())">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+        <div class="container">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Título:</label>
+                    </div>
+                    <div class="col-6">
+                            <InputText @bind-Value="EditPost.Titulo" class="form-control" placeholder="Digite o título"></InputText>
+                            <ValidationMessage For="() => EditPost.Titulo"></ValidationMessage>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Descrição:</label>
+                    </div>
+                    <div class="col-6">
+                            <InputText @bind-Value="EditPost.Descricao" class="form-control" placeholder="Digite a descrição"></InputText>
+                            <ValidationMessage For="() => EditPost.Descricao"></ValidationMessage>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <label>Categorias:</label>
+                    </div>
+                    <div class="col-6">
+                            <InputText @bind-Value="EditPost.Etiqueta" class="form-control" placeholder="Digite as categorias"></InputText>
+                            <ValidationMessage For="() => EditPost.Etiqueta"></ValidationMessage>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Imagem atual</h4>
+                        <div class="imagen-post mb-3" style="background: url('@EditPost.RotaImagem'); width:300px; height:169px; background-size:cover;">
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <h4>Atualizar Imagem</h4>
+                        <InputFile OnChange="@SubidaArquivos"></InputFile>
+                        <br />
+                        @if (imagePost != null)
+                        {
+                            <div>
+                                <img src="@imagePost" style="width:300px" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-success"><i class="bi bi-gear-fill"></i>&nbsp; Editar Post</button>
+                    </div>
+                    <div class="col-6">
+                        <NavLink href="posts" class="btn btn-secondary"><i class="bi bi-arrow-left-circle-fill"></i>&nbsp; Voltar</NavLink>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       </EditForm>
+        
+    </div>
+</div>
+
+@code {
+    private Post EditPost { get; set; } = new Post();
+    [Parameter]
+    public int? Id { get; set; }
+    [Parameter]
+    public string imagePost { get; set; }
+    [Parameter]
+    public EventCallback<string> OnChange { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        EditPost = await postsService.GetPost(Id.Value);
+    }
+
+    private async Task EditarPost()
+    {
+        EditPost.RotaImagem = imagePost;
+        var dataHoje = DateTime.Now.ToString();
+        EditPost.DataAtualizacao = dataHoje;
+        var editarPost = await postsService.AtualizarPost(Id.Value, EditPost);
+        await JsRuntime.ToastrSuccess("Atualizado com sucesso!");
+        navigationManager.NavigateTo("posts");
+    }
+
+    private async Task SubidaArquivos(InputFileChangeEventArgs e)
+    {
+        var imageFile = e.File;
+        if (imageFile != null)
+        {
+            var resizedFile = await imageFile.RequestImageFileAsync("image/png", 1000, 700);
+            using (var ms = resizedFile.OpenReadStream(resizedFile.Size))
+            {
+                var content = new MultipartFormDataContent();
+                content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
+                content.Add(new StreamContent(ms, Convert.ToInt32(resizedFile.Size)), "image", imageFile.Name);
+                imagePost = await postsService.UploadImages(content);
+                await OnChange.InvokeAsync(imagePost);
+            }
+        }
+    }
+}

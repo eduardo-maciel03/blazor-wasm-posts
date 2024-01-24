@@ -1,0 +1,79 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = ClientBlazorWASM
+build_property.RootNamespace = ClientBlazorWASM
+build_property.ProjectDir = D:\Projetos\APIs\ApiBlogApp\ClientBlazorWASM\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Projetos\APIs\ApiBlogApp\ClientBlazorWASM
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Layout/DeleteLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XERlbGV0ZUxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Authentication/Acessar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cQWNlc3Nhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Authentication/Registro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cUmVnaXN0cm8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Authentication/Sair.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aGVudGljYXRpb25cU2Fpci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/DetalhesPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWxoZXNQb3N0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Posts/CompCriarPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcQ29tcENyaWFyUG9zdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Posts/CompEditarPost.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcQ29tcEVkaXRhclBvc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/Posts/CompPosts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcQ29tcFBvc3RzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Pages/RedirecionarAoAcesso.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVkaXJlY2lvbmFyQW9BY2Vzc28ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-88xrrsui2x
+
+[D:/Projetos/APIs/ApiBlogApp/ClientBlazorWASM/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-oes5pvhesw

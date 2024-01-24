@@ -1,0 +1,39 @@
+﻿@page "/"
+@using ClientBlazorWASM.Models
+@using ClientBlazorWASM.Services.Interface
+
+@inject IPostsService postsService
+
+<PageTitle>Início</PageTitle>
+
+<h1 class="text-center">Últimas postagens</h1>
+
+<div class="row">
+    @foreach (var post in Posts)
+    {
+        <div class="col-3 mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">@post.Titulo</h3>
+                </div>
+                <div class="card-body">
+                    <img src="@post.RotaImagem" class="img-fluid"/>
+                </div>
+                <div class="card-footer">
+                    <NavLink href="@($"detalhe-post/{post.Id}")"> Mais informações...</NavLink>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code{
+    private IEnumerable<Post> Posts { get; set; } = new List<Post>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Posts = await postsService.GetPosts();
+    }
+}
+

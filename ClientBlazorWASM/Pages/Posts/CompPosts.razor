@@ -1,0 +1,100 @@
+﻿@page "/posts"
+@using ClientBlazorWASM.Models;
+@using ClientBlazorWASM.Services.Interface;
+@using Microsoft.AspNetCore.Authorization
+
+@inject IPostsService postsService
+@inject IJSRuntime JsRuntime
+@attribute [Authorize]
+
+<h1 class="text-center">Posts</h1>
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-7">
+                <h4 class="card-title text-dark">Lista de Postagens</h4>
+            </div>
+            <div class="col-3 offset-2">
+                <NavLink href="criar-post" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i>&nbsp; Novo Post</NavLink>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Imagem</th>
+                    <th>Categorias</th>
+                    <th>Data de Criação</th>
+                    <th>Data de Atualização</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Posts.Count() > 0)
+                {
+                    @foreach (var post in Posts)
+                    {
+                        <tr>
+                            <td>@post.Id</td>
+                            <td>@post.Titulo</td>
+                            <td>@post.Descricao</td>
+                            <td><img src="@post.RotaImagem" class="img-fluid" width="100px"/></td>
+                            <td>@post.Etiqueta</td>
+                            <td>@post.DataCriacao</td>
+                            <td>@post.DataAtualizacao</td>
+                            <td>
+                                <NavLink href="@($"editar-post/{post.Id}")" class="btn btn-success"><i class="bi bi-gear-fill"></i>&nbsp; Editar</NavLink>
+                                <button class="btn btn-danger" @onclick="()=>Apagar(post.Id)"><i class="bi bi-trash-fill"></i>&nbsp; Apagar</button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5">Não existem postagens ainda!</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<DeleteLayout ProcessandoComponente="Processando" Confirmacao="OnClickDelete"></DeleteLayout>
+
+@code {
+    public IEnumerable<Post> Posts { get; set; } = new List<Post>();
+
+    private bool Processando { get; set; } = false;
+    private int? IdPostApagar { get; set; } = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Posts = await postsService.GetPosts();
+    }
+
+    public async Task Apagar(int id)
+    {
+        IdPostApagar = id;
+        await JsRuntime.InvokeVoidAsync("MostrarModalConfirmacaoApagado");
+    }
+
+    public async Task OnClickDelete(bool confirm)
+    {
+        Processando = true;
+        if (confirm && IdPostApagar != null)
+        {
+            await postsService.DeletarPost(IdPostApagar.Value);
+            await JsRuntime.ToastrSuccess("Post deletado corretamente!");
+            Posts = await postsService.GetPosts();
+        }
+
+        await JsRuntime.InvokeVoidAsync("OcultarModalConfirmacaoApagado");
+        Processando = false;
+    }
+}

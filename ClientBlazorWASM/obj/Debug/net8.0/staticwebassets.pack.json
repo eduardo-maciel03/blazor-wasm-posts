@@ -1,0 +1,69 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\obj\\Debug\\net8.0\\compressed\\urv2z08ufs.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ClientBlazorWASM.styles.css",
+      "PackagePath": "staticwebassets\\ClientBlazorWASM.styles.css"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\images\\fundo-header.jpg",
+      "PackagePath": "staticwebassets\\images\\fundo-header.jpg"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\js\\common.js",
+      "PackagePath": "staticwebassets\\js\\common.js"
+    },
+    {
+      "Id": "D:\\Projetos\\APIs\\ApiBlogApp\\ClientBlazorWASM\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ClientBlazorWASM.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ClientBlazorWASM.props",
+      "PackagePath": "build\\ClientBlazorWASM.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ClientBlazorWASM.props",
+      "PackagePath": "buildMultiTargeting\\ClientBlazorWASM.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ClientBlazorWASM.props",
+      "PackagePath": "buildTransitive\\ClientBlazorWASM.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
